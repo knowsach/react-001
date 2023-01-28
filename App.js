@@ -1,21 +1,20 @@
-const heading = React.createElement("h1",
-    // props of the element
-    {
+const heading = React.createElement(
+    "h1", {
+        // props of the element
         id: "heading",
         onClick: () => {
             console.log('clicked')
         },
-        "random_prop": 'random value' // random_prop is not recognised by React.
-    }, "Heading");
+        "random_prop": 'random value'
+    }, "Heading"
+);
 
-const heading2 = React.createElement("h1",
-    // props of the element
-    {
+const heading2 = React.createElement(
+    "h1", {
         id: "heading2",
-        onClick: () => {
-            console.log('clicked')
-        },
-    }, "Heading 2");
+    },
+    "Heading 2"
+);
 
 console.log(heading);
 
