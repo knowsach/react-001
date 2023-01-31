@@ -11,8 +11,18 @@ export default Header = () => {
             <li>Cart</li>
           </ul>
         </div>
+
+    {
+    authenticatUser() ? 
+    <button> Log out </button> :
+     <button> Login </button>
+     }
       </div>
     );
+  };
+
+  const authenticatUser = () =>{
+    return true;
   };
 
   const Title = () => (
