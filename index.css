@@ -33,3 +33,15 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.shimmer-card {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: lightgrey;
+}
+
+.menu {
+    display: flex;
+}

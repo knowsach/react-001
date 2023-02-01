@@ -1,13 +1,24 @@
-// Composing Comopnentss
+import {Link} from 'react-router-dom';
+
 export default Header = () => {
     return (
       <div className="header">
         <Title />
         <div className="nav-items">
           <ul>
+          
+          <Link to='/'>
             <li>Home</li>
-            <li>About</li>
+          </Link>
+
+          <Link to='/about'>
+             <li>About</li>
+           </Link>
+          
+          <Link to='/contact'>
             <li>Contact</li>
+          </Link>
+          
             <li>Cart</li>
           </ul>
         </div>

@@ -2,7 +2,7 @@ import restrautList from '../constant.js';
 import RestrauntCard from './restaurant_card.js';
 import { useState, useEffect } from 'react';
 import Shimmer from './shimmer';
-
+import {Link} from 'react-router-dom';
 
 function filterData (searchtext, restaurants) {
     if(searchtext.trim() == ''){
@@ -18,6 +18,8 @@ export default Body = () => {
     const [filteredRestaurants , setfilteredRestaurants] = useState([]);
     const [allRestaurants , setAllRestaurants] = useState([]);
 
+
+    console.log('body')
 
     // useEffect is called after every render
     // useEffect is called when dependency array is changed
@@ -65,7 +67,10 @@ export default Body = () => {
     <h1>No restaurants found...</h1> :   
      <div className="restaurant-list">
         {filteredRestaurants.map((restaurant) => {
-          return <RestrauntCard {...restaurant.data} key={restaurant.data.id} />;
+         return(  <Link key={restaurant.data.id} to={'/restaurant/' + restaurant.data.id}>
+           <RestrauntCard {...restaurant.data}  />;
+          </Link>
+         )
         })}
       </div>
       }
