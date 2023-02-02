@@ -68,7 +68,7 @@ export default Body = () => {
      <div className="restaurant-list">
         {filteredRestaurants.map((restaurant) => {
          return(  <Link key={restaurant.data.id} to={'/restaurant/' + restaurant.data.id}>
-           <RestrauntCard {...restaurant.data}  />;
+           <RestrauntCard {...restaurant.data}  />
           </Link>
          )
         })}
