@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import {useEffect, useState} from 'react';
 import {IMG_CDN_URL} from '../constant';
 import Shimmer from "./shimmer";
+import useRestaurant from "../utils/useRestaurant";
 
 const RestaurantDetail = () => {
 
@@ -9,18 +10,9 @@ const RestaurantDetail = () => {
     const params = useParams();
     const {id} = params;
 
-    const [restaurant, setRestaurant] = useState(null);
+    // custom restaurant hook
+    const restaurant = useRestaurant(id);
    
-    useEffect(() => {
-        getRestaurantDetail();
-    }, []);
-
-    async function getRestaurantDetail() {
-         var data = await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=" + id);
-         var json = await data.json();
-         setRestaurant(json.data);
-    }
-
     console.log(restaurant);
     if(restaurant == null ) {
         return <Shimmer />
@@ -45,7 +37,6 @@ const RestaurantDetail = () => {
                    return  <li key={item?.id}> {item?.name} </li>
                 })}
                </ul>
-             
             </div>
             
 

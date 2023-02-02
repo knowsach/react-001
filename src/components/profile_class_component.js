@@ -34,7 +34,6 @@ class Profile extends React.Component {
         console.log('render')
         return(
             <div>
-                <h1> Profile... </h1>
                 <h2> {this.state.userInfo.name} </h2>
                 <img src = {this.state.userInfo.avatar_url} />
                 <h2> {this.state.userInfo.location} </h2>

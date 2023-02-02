@@ -3,23 +3,14 @@ import RestrauntCard from './restaurant_card.js';
 import { useState, useEffect } from 'react';
 import Shimmer from './shimmer';
 import {Link} from 'react-router-dom';
-
-function filterData (searchtext, restaurants) {
-    if(searchtext.trim() == ''){
-      return restaurants;
-    }
-
-  return restaurants.filter((restaurant) => restaurant?.data?.name?.toLowerCase().includes(searchtext?.toLowerCase()) );
-}
+import { filterData } from '../utils/helper.js';
+import useOnline from '../utils/useOnline';
 
 // no key (not acceptable)<<<<<<<<<<< index key(last option) <<<<< unquie key (best practice)
 export default Body = () => {
     const [searchText, setSearchText] = useState('');
     const [filteredRestaurants , setfilteredRestaurants] = useState([]);
     const [allRestaurants , setAllRestaurants] = useState([]);
-
-
-    console.log('body')
 
     // useEffect is called after every render
     // useEffect is called when dependency array is changed
@@ -36,6 +27,13 @@ export default Body = () => {
       var json = await data.json();
       setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards)
       setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    }
+
+    // custom hook
+    online = useOnline();
+
+    if(online == false){
+      return <h1> you are offline... </h1>
     }
 
     if(!allRestaurants){
@@ -74,7 +72,6 @@ export default Body = () => {
         })}
       </div>
       }
-      
       </>
     );
 
