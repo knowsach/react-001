@@ -19,22 +19,21 @@ const RestaurantDetail = () => {
     }
 
     return(
-        <div className="menu">
+        <div className="flex px-5 py-5 w-[700px] ">
             <div>
-            <h1> Restaurants id : {id} </h1>
-            <h2> {restaurant?.name}  </h2>
-            <img src={IMG_CDN_URL + restaurant?.cloudinaryImageId} />
+            <h2 className="text-4xl"> {restaurant?.name} : ({id}) </h2>
+            <img className="w-80 py-4" src={IMG_CDN_URL + restaurant?.cloudinaryImageId} />
             <h3> {restaurant?.area}  </h3>
             <h3> {restaurant?.city}  </h3>
             <h3> {restaurant?.avgrating}  </h3>
             <h3> {restaurant?.costForTwoMsg}  </h3>
             </div>
      
-            <div>
-               <h1> Menu </h1>
-               <ul>
+            <div className="px-10">
+               <h1 className="text-4xl"> Menu </h1>
+               <ul className="py-4">
                {Object.values(restaurant?.menu?.items).map((item) => {
-                   return  <li key={item?.id}> {item?.name} </li>
+                   return  <li className="text-gray-500" key={item?.id}> {item?.name} </li>
                 })}
                </ul>
             </div>
