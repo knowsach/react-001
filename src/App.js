@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useState} from "react";
 import ReactDOM, { createRoot } from "react-dom/client";
 import Body from "./components/body";
 import Footer from './components/footer.js';
@@ -10,6 +10,7 @@ import Contact from './components/contact';
 import RestaurantDetail from "./components/restaurant_detail";
 import Profile from "./components/profile_class_component";
 import Shimmer from "./components/shimmer";
+import UserContext from "./utils/userContext";
 
 // lazy loading
 // on demand loading
@@ -18,12 +19,20 @@ const Instamart = lazy(() =>{
 });
 
 const AppLayout = () => {
+
+  const [user, setUser] = useState({
+    name : 'jhone do222e',
+    email : 'jhon@email.com'
+  });
+
   return (
-    <>
+    <UserContext.Provider value={{
+      user: user
+    }}>
       <Header />
       <Outlet/>
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 };
 

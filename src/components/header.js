@@ -1,6 +1,11 @@
 import {Link} from 'react-router-dom';
+import {useContext} from 'react';
+import UserContext from '../utils/userContext';
 
 export default Header = () => {
+
+  const {user} = useContext(UserContext);
+
     return (
       <div className="flex justify-between bg-slate-200 shadow-lg">
         <Title />
@@ -27,6 +32,7 @@ export default Header = () => {
           </ul>
         </div>
 
+       <h1 className='font-bold p-10'>  {user.name} </h1> 
     {
     authenticatUser() ? 
     <button> Log out </button> :
