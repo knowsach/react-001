@@ -32,16 +32,15 @@ class Profile extends React.Component {
     }
 
     render() {
-        console.log('render')
         return(
             <div>
-                <UserContext.Consumer>
+                {/* <UserContext.Consumer>
                     {({user})=> (
                         <h1> {user.name} {user.email} </h1>
                     )}
-                </UserContext.Consumer>
-                <h2> {this.state.userInfo.name} </h2>
-                <img src = {this.state.userInfo.avatar_url} />
+                </UserContext.Consumer> */}
+                <h2 className='font-bold'> {this.state.userInfo.name} </h2>
+                <img className='rounded-lg h-80' src = {this.state.userInfo.avatar_url} />
                 <h2> {this.state.userInfo.location} </h2>
             </div>
         )

@@ -1,10 +1,11 @@
-import { createContext } from "react"
+import { createContext, useState } from "react"
+
 
 const UserContext = createContext({
     user: {
-        name : "Jhon Doe",
-        email : 'hon@email.com'
-    }
+        name : 'jhone do222e',
+        email : 'jhon@email.com'
+      }
 });
 
 UserContext.displayName = 'UserContext';

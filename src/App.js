@@ -27,12 +27,14 @@ const AppLayout = () => {
 
   return (
     <UserContext.Provider value={{
-      user: user
+      'user': user,
+      'setUser' : setUser
     }}>
       <Header />
       <Outlet/>
       <Footer />
-    </UserContext.Provider>
+    
+     </UserContext.Provider>
   );
 };
 

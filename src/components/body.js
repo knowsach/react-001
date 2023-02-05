@@ -40,8 +40,8 @@ export default Body = () => {
       return null;
     }
 
-
-    return allRestaurants?.length == 0 ? <Shimmer /> : (
+    
+    return (
         <>
         <div className='search-container p-5'>
             <input type='text' 
@@ -59,6 +59,8 @@ export default Body = () => {
                 setfilteredRestaurants(filteredRestaurants);
             }}> search </button>  
         </div>
+
+   {allRestaurants?.length == 0 ? <Shimmer /> : <span></span>}
 
     {
     filteredRestaurants.length == 0 ? 

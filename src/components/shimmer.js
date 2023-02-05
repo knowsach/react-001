@@ -1,6 +1,6 @@
 export default Shimmer = () => {
-    return <div className="restaurant-list">
-    {Array(10).fill("").map((e, index) =>  <div key={index} className="shimmer-card">
+    return <div className='flex flex-wrap'>
+    {Array(10).fill("").map((e, index) =>  <div key={index} className='h-40 w-52 bg-gray-300 m-2'>
     </div>) }
     </div>
 }

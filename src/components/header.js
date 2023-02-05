@@ -4,8 +4,9 @@ import UserContext from '../utils/userContext';
 
 export default Header = () => {
 
-  const {user} = useContext(UserContext);
-
+  const userContext = useContext(UserContext);
+  const {user} = userContext;
+  
     return (
       <div className="flex justify-between bg-slate-200 shadow-lg">
         <Title />
@@ -32,7 +33,6 @@ export default Header = () => {
           </ul>
         </div>
 
-       <h1 className='font-bold p-10'>  {user.name} </h1> 
     {
     authenticatUser() ? 
     <button> Log out </button> :
