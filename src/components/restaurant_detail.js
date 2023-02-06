@@ -3,6 +3,9 @@ import {useEffect, useState} from 'react';
 import {IMG_CDN_URL} from '../constant';
 import Shimmer from "./shimmer";
 import useRestaurant from "../utils/useRestaurant";
+import { addItem } from "../utils/cartSlice";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantDetail = () => {
 
@@ -12,6 +15,11 @@ const RestaurantDetail = () => {
 
     // custom restaurant hook
     const restaurant = useRestaurant(id);
+    const dispatch = useDispatch();
+
+    const addFoodItem = (foodItem) =>{
+        dispatch(addItem(foodItem))
+    }
    
     console.log(restaurant);
     if(restaurant == null ) {
@@ -28,12 +36,17 @@ const RestaurantDetail = () => {
             <h3> {restaurant?.avgrating}  </h3>
             <h3> {restaurant?.costForTwoMsg}  </h3>
             </div>
-     
+     <div>
+        
+     </div>
             <div className="px-10">
                <h1 className="text-4xl"> Menu </h1>
-               <ul className="py-4">
+               <ul>
                {Object.values(restaurant?.menu?.items).map((item) => {
-                   return  <li className="text-gray-500" key={item?.id}> {item?.name} </li>
+                   return  <li className="text-gray-500 p-1" key={item?.id}> {item?.name} 
+                    <button className="p-1 m-1 bg-green-100"
+                   onClick={()=>{addFoodItem(item)}}
+                   > Add  </button></li>
                 })}
                </ul>
             </div>

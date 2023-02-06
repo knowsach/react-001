@@ -11,6 +11,9 @@ import RestaurantDetail from "./components/restaurant_detail";
 import Profile from "./components/profile_class_component";
 import Shimmer from "./components/shimmer";
 import UserContext from "./utils/userContext";
+import {Provider} from 'react-redux';
+import store from './utils/store'
+import Cart from './components/cart'
 
 // lazy loading
 // on demand loading
@@ -26,15 +29,17 @@ const AppLayout = () => {
   });
 
   return (
-    <UserContext.Provider value={{
-      'user': user,
-      'setUser' : setUser
-    }}>
-      <Header />
-      <Outlet/>
-      <Footer />
-    
-     </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{
+        'user': user,
+        'setUser' : setUser
+      }}>
+        <Header />
+        <Outlet/>
+        <Footer />
+      
+      </UserContext.Provider>
+     </Provider>
   );
 };
 
@@ -61,6 +66,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/contact',
         element : <Contact />
+      },
+      {
+        path: '/cart',
+        element : <Cart/>
       },
       {
         path: '/restaurant/:id',
